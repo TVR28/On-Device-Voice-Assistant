@@ -1,0 +1,14 @@
+# Core ML & Apple Ecosystem
+coremltools==8.0
+
+# PyTorch
+torch==2.4.0
+torchvision==0.19.0
+torchaudio==2.4.0
+
+# Hugging Face
+transformers==4.42.0
+sentencepiece
+
+# General
+numpy 
