@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo-Photoroom.png" alt="Veda Logo" width="120">
+  <img src="logo-Photoroom.png" alt="Veda Logo" width="150">
   <h1>Veda - On-Device Voice Assistant</h1>
   <p>
     <strong>🤖 Advanced AI-powered voice assistant running entirely on-device</strong><br>
@@ -121,7 +121,7 @@ Veda uses Google's cutting-edge Gemma 2B models, optimized for Apple Silicon:
 ## 🏗️ Architecture
 
 <div align="center">
-  <img src="flow-diagram.png" alt="Architecture Diagram" width="600">
+  <img src="flow-diagram.png" alt="Architecture Diagram" width="700">
 </div>
 
 ### Core Components
