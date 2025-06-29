@@ -1,184 +1,315 @@
-# Veda - On-Device Voice Assistant
+<div align="center">
+  <img src="logo-Photoroom.png" alt="Veda Logo" width="120">
+  <h1>Veda - On-Device Voice Assistant</h1>
+  <p>
+    <strong>🤖 Advanced AI-powered voice assistant running entirely on-device</strong><br>
+    Built with Swift and powered by Google's Gemma 2B CoreML models
+  </p>
+  
+  <!-- Badges -->
+  <p>
+    <img src="https://img.shields.io/badge/iOS-16.0%2B-blue" alt="iOS 16.0+">
+    <img src="https://img.shields.io/badge/Xcode-14.0%2B-blue" alt="Xcode 14.0+">
+    <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift 5.9">
+    <img src="https://img.shields.io/badge/CoreML-Gemma%202B-green" alt="CoreML Gemma 2B">
+    <img src="https://img.shields.io/badge/License-MIT-green" alt="License: MIT">
+    <img src="https://img.shields.io/badge/Privacy-On%20Device-purple" alt="Privacy: On Device">
+  </p>
+  
+  <p>
+    <strong>📱 Real-time voice interaction • 🎙️ Speech recognition • 🔊 Text-to-speech • 💬 Conversation management</strong>
+  </p>
+</div>
 
-Veda is an advanced on-device voice assistant app built with Swift and powered by Google's Gemma 2B CoreML models. It features real-time speech recognition, text-to-speech synthesis, conversation management, and a beautiful modern UI.
-
-![Veda Logo](logo.png)
+---
 
 ## ✨ Features
 
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 **Core Capabilities**
 - **🎙️ Voice Interaction**: Real-time speech-to-text with visual feedback
-- **🤖 AI Responses**: Powered by Google Gemma 2B CoreML models (128-bit and 4-bit quantized)
-- **🔊 Text-to-Speech**: Natural voice synthesis with customizable speed and pitch
-- **💬 Conversation History**: Save, export, and manage conversation threads
-- **⚙️ Advanced Settings**: Voice controls, model selection, and data management
-- **📱 Modern UI**: Clean, intuitive interface with haptic feedback
+- **🤖 AI Responses**: Powered by Gemma 2B CoreML models  
+- **🔊 Text-to-Speech**: Natural voice synthesis with customization
+- **💬 Smart Conversations**: Context-aware dialogue management
+
+</td>
+<td width="50%">
+
+### ⚙️ **Advanced Features**
+- **📱 Modern UI**: Clean interface with haptic feedback
 - **🔒 Privacy First**: All processing happens on-device
-- **📂 Data Export**: Export conversations to Markdown format
-- **🎨 Splash Screen**: Beautiful animated launch experience
+- **📂 Data Export**: Export conversations to Markdown
+- **🎨 Beautiful Design**: Animated splash screen & smooth UX
+
+</td>
+</tr>
+</table>
 
 ## 🚀 Quick Start
 
+> **⚡ Get Veda running in under 5 minutes!**
+
 ### Prerequisites
 
-- **macOS**: macOS 12.0 or later
-- **Xcode**: Xcode 14.0 or later
-- **iOS Device**: iOS 16.0 or later (for testing)
-- **Python**: Python 3.7 or later
-- **Internet**: Required for initial model download
+<table>
+<tr>
+<td><strong>💻 System</strong></td>
+<td>macOS 12.0+, Xcode 14.0+</td>
+</tr>
+<tr>
+<td><strong>📱 Device</strong></td>
+<td>iOS 16.0+, iPhone 12+ recommended</td>
+</tr>
+<tr>
+<td><strong>💾 Storage</strong></td>
+<td>8GB+ free space (for models)</td>
+</tr>
+<tr>
+<td><strong>🌐 Network</strong></td>
+<td>Internet required for initial model download</td>
+</tr>
+</table>
 
-### 1. Clone the Repository
+### 🛠️ Installation
 
 ```bash
+# 1️⃣ Clone the repository
 git clone https://github.com/TVR28/On-Device-Voice-Assistant.git
 cd On-Device-Voice-Assistant
-```
 
-### 2. Download Models
-
-The app requires large CoreML models (~6.5GB total) that are stored separately on Hugging Face. Run the setup script to download them:
-
-```bash
-# Make sure you have internet connection
+# 2️⃣ Download AI models (automated setup)
 ./setup_models.sh
-```
 
-**What this script does:**
-- Downloads Gemma-2B-IT-Stateful-128.mlpackage (~5GB)
-- Downloads Gemma-2B-IT-Stateful-4bit-128.mlpackage (~1.4GB) 
-- Places models in the correct locations for Xcode builds
-- Sets up the directory structure automatically
-
-**Note**: The models are stored in a private Hugging Face repository. The script uses cached authentication from the development setup.
-
-### 3. Open in Xcode
-
-```bash
+# 3️⃣ Open in Xcode
 open VoiceFoundationApp/VoiceFoundationApp.xcodeproj
+
+# 4️⃣ Build & Run (⌘+R) - Grant microphone permissions when prompted
 ```
 
-### 4. Build and Run
+> **🔥 That's it! Veda is ready to chat with you.**
 
-1. Select your target device (iPhone/iPad or Simulator)
-2. Build and run the project (⌘+R)
-3. Grant microphone permissions when prompted
-4. Start chatting with Veda!
+## 🤖 AI Models
+
+Veda uses Google's cutting-edge Gemma 2B models, optimized for Apple Silicon:
+
+<table>
+<tr>
+<th>Model</th>
+<th>Size</th>
+<th>Precision</th>
+<th>Use Case</th>
+</tr>
+<tr>
+<td><strong>Gemma-2B-IT-Stateful-128</strong></td>
+<td>~5GB</td>
+<td>Full (128-bit)</td>
+<td>Maximum quality responses</td>
+</tr>
+<tr>
+<td><strong>Gemma-2B-IT-Stateful-4bit-128</strong></td>
+<td>~1.4GB</td>
+<td>Quantized (4-bit)</td>
+<td>Faster inference, lower memory</td>
+</tr>
+</table>
+
+**🔒 Privacy**: Models are stored in a private Hugging Face repository and run entirely on-device.
 
 ## 🏗️ Architecture
 
+<div align="center">
+  <img src="flow-diagram.png" alt="Architecture Diagram" width="600">
+</div>
+
 ### Core Components
 
-- **ContentView**: Main interface with voice interaction UI
-- **SpeechManager**: Handles speech recognition and text-to-speech
-- **MockLLMManager**: Manages AI model inference and streaming responses
-- **ConversationManager**: Handles conversation persistence and management
-- **SettingsView**: Configuration and preferences management
-- **SplashScreenView**: Animated launch screen
+| Component | Responsibility |
+|-----------|----------------|
+| **ContentView** | Main UI with voice interaction controls |
+| **SpeechManager** | Speech recognition & text-to-speech synthesis |
+| **MockLLMManager** | AI model inference & streaming responses |
+| **ConversationManager** | Persistent conversation storage |
+| **SettingsView** | Configuration & preferences |
 
-### Model Integration
+## 🎛️ Advanced Features
 
-The app uses Google's Gemma 2B models converted to CoreML format:
+<details>
+<summary><strong>🎙️ Voice Interaction</strong></summary>
 
-- **Gemma-2B-IT-Stateful-128**: Full precision model for maximum quality
-- **Gemma-2B-IT-Stateful-4bit-128**: Quantized model for faster inference
+- **Tap & Hold**: Record voice input with real-time feedback
+- **Hands-free Mode**: Automatic voice activation
+- **Custom TTS**: Adjustable speed, pitch, and voice selection
+- **Smart Detection**: Automatic speech start/stop detection
 
-Models are loaded dynamically based on user preference and device capabilities.
+</details>
 
-## 🎛️ Features in Detail
+<details>
+<summary><strong>💬 Conversation Management</strong></summary>
 
-### Voice Interaction
-- Tap and hold to record voice input
-- Real-time visual feedback during recording
-- Automatic voice mode with hands-free operation
-- Customizable TTS voice settings (speed, pitch)
+- **Persistent History**: All conversations saved locally
+- **Smart Export**: Export to Markdown with metadata
+- **Custom Storage**: Choose your own storage location
+- **Search & Filter**: Find conversations quickly
 
-### Conversation Management
-- Persistent conversation history
-- Export conversations to Markdown
-- Custom storage locations
-- Search and filter conversations
+</details>
 
-### Settings & Customization
-- Model selection (128-bit vs 4-bit)
-- Voice synthesis controls
-- Data management options
-- Performance monitoring
+<details>
+<summary><strong>⚙️ Customization</strong></summary>
 
-### Privacy & Security
-- All processing happens on-device
-- No data sent to external servers
-- Local conversation storage
-- User-controlled data export
+- **Model Selection**: Switch between 128-bit and 4-bit models
+- **Voice Controls**: Fine-tune TTS parameters
+- **Privacy Settings**: Control data retention
+- **Performance Tuning**: Optimize for your device
+
+</details>
 
 ## 📱 System Requirements
 
-### Minimum Requirements
-- iOS 16.0+
-- iPhone 12 or newer (A14 Bionic chip)
-- 8GB+ free storage space
-- Microphone access
+<table>
+<tr>
+<td colspan="2" align="center"><strong>🔵 Minimum Requirements</strong></td>
+</tr>
+<tr>
+<td><strong>iOS Version</strong></td>
+<td>iOS 16.0 or later</td>
+</tr>
+<tr>
+<td><strong>Device</strong></td>
+<td>iPhone 12 or newer (A14 Bionic+)</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>8GB+ free space</td>
+</tr>
+<tr>
+<td><strong>RAM</strong></td>
+<td>6GB+ recommended</td>
+</tr>
+</table>
 
-### Recommended
-- iOS 17.0+
-- iPhone 14 Pro or newer
-- 16GB+ free storage space
-- Stable internet for initial setup
+<table>
+<tr>
+<td colspan="2" align="center"><strong>🟢 Recommended Setup</strong></td>
+</tr>
+<tr>
+<td><strong>iOS Version</strong></td>
+<td>iOS 17.0 or later</td>
+</tr>
+<tr>
+<td><strong>Device</strong></td>
+<td>iPhone 14 Pro or newer</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>16GB+ free space</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>Stable internet for setup</td>
+</tr>
+</table>
 
-## 🛠️ Development Setup
-
-### Model Development
-The CoreML models are converted from the original Gemma PyTorch models using Apple's coremltools. The conversion process includes:
-
-1. Model optimization for Neural Engine
-2. Quantization for size/speed tradeoffs  
-3. Stateful configuration for conversation context
-4. Integration testing with CoreML runtime
+## 🛠️ Development
 
 ### File Structure
 ```
 VoiceFoundationApp/
 ├── VoiceFoundationApp/
-│   ├── ContentView.swift              # Main UI
-│   ├── SpeechManager.swift            # Speech processing
-│   ├── MockLLMManager.swift           # AI model interface
-│   ├── ConversationManager.swift     # Data persistence
-│   ├── SettingsView.swift             # Configuration UI
-│   ├── SplashScreenView.swift         # Launch screen
-│   ├── Models.swift                   # Data models
-│   └── Assets.xcassets/               # Images and icons
-├── VoiceFoundationAppTests/           # Unit tests
-└── VoiceFoundationAppUITests/         # UI tests
+│   ├── ContentView.swift              # 🎨 Main UI
+│   ├── SpeechManager.swift            # 🎙️ Speech processing
+│   ├── MockLLMManager.swift           # 🤖 AI model interface
+│   ├── ConversationManager.swift     # 💾 Data persistence
+│   ├── SettingsView.swift             # ⚙️ Configuration UI
+│   ├── SplashScreenView.swift         # ✨ Launch screen
+│   ├── Models.swift                   # 📋 Data models
+│   └── Assets.xcassets/               # 🖼️ Images and icons
+├── VoiceFoundationAppTests/           # 🧪 Unit tests
+└── VoiceFoundationAppUITests/         # 🖱️ UI tests
 ```
+
+### Model Pipeline
+The CoreML models undergo extensive optimization:
+
+1. **🔄 Conversion**: PyTorch → CoreML using Apple's tools
+2. **⚡ Optimization**: Neural Engine acceleration
+3. **📦 Quantization**: Size/speed optimization
+4. **🔄 Stateful Config**: Conversation context preservation
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+We welcome contributions! Here's how to get started:
+
+1. **🍴 Fork** the repository
+2. **🌿 Create** your feature branch (`git checkout -b feature/AmazingFeature`)
+3. **💾 Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **📤 Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **🔀 Open** a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- **Google**: For the Gemma model architecture and weights
-- **Apple**: For CoreML framework and Neural Engine optimization
-- **Hugging Face**: For model hosting and distribution
-- **Swift Community**: For excellent documentation and resources
+<table>
+<tr>
+<td align="center">
+<strong>🏢 Google</strong><br>
+Gemma model architecture
+</td>
+<td align="center">
+<strong>🍎 Apple</strong><br>
+CoreML & Neural Engine
+</td>
+<td align="center">
+<strong>🤗 Hugging Face</strong><br>
+Model hosting platform
+</td>
+</tr>
+</table>
 
-## 📞 Support
+## 📞 Support & Troubleshooting
 
-If you encounter any issues:
+<details>
+<summary><strong>🔧 Common Issues</strong></summary>
 
-1. **Model Download Issues**: Ensure you have a stable internet connection and sufficient storage space
-2. **Build Errors**: Make sure you're using Xcode 14+ and iOS 16+ deployment target
-3. **Performance Issues**: Try using the 4-bit quantized model for faster inference
-4. **Voice Recognition**: Check microphone permissions in iOS Settings
+| Issue | Solution |
+|-------|----------|
+| **📥 Model Download Fails** | Check internet connection & storage space |
+| **🔨 Build Errors** | Ensure Xcode 14+ and iOS 16+ target |
+| **🐌 Slow Performance** | Try 4-bit quantized model |
+| **🎤 Voice Not Working** | Check microphone permissions in Settings |
 
-For additional support, please open an issue in the GitHub repository.
+</details>
+
+<details>
+<summary><strong>💡 Performance Tips</strong></summary>
+
+- **🔋 Battery**: Use 4-bit model for longer battery life
+- **🚀 Speed**: Ensure sufficient free RAM (6GB+)
+- **📱 Device**: iPhone 14 Pro+ for best experience
+- **🔊 Audio**: Use wired headphones for best voice recognition
+
+</details>
 
 ---
 
-**Made with ❤️ by the Veda Team** 
+<div align="center">
+  <p>
+    <strong>Made with ❤️ by the Veda Team</strong><br>
+    <sub>Bringing AI conversations to your pocket, privately and securely</sub>
+  </p>
+  
+  <p>
+    <a href="https://github.com/TVR28/On-Device-Voice-Assistant/issues">🐛 Report Bug</a> •
+    <a href="https://github.com/TVR28/On-Device-Voice-Assistant/issues">💡 Request Feature</a> •
+    <a href="https://github.com/TVR28/On-Device-Voice-Assistant/discussions">💬 Discussions</a>
+  </p>
+  
+  <p>
+    <strong>⭐ Star this repo if you found it helpful!</strong>
+  </p>
+</div> 
